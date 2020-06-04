@@ -6,14 +6,14 @@ jobs:
     build:
      executor:
     name: node/default
-      steps:
+      steps :
          - checkout
      
 
  test_1:
  executor:
  name: node/default
- steps:
+ steps :
  - checkout
  - run:
  command: npm install
@@ -25,7 +25,7 @@ jobs:
              test_2:
                  executor:
                  name: node/default
-                 steps:
+                 steps :
                  - checkout
                  - node/install-packages:
  app-dir: ./server
