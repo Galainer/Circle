@@ -3,7 +3,9 @@ orbs:
   node: circleci/node@2.1.0
 jobs:
     build-and-test:
-        executor: node/default
+    build:
+        executor: 
+        name: node/default
         steps:
         - checkout
     test_1:
@@ -43,6 +45,6 @@ workflows:
          - test_1:
             requires:
               - build
-         - test_1:
+         - test_2:
             requires:
               - build  
