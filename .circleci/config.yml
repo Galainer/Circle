@@ -40,12 +40,12 @@
             - heroku/deploy-via-git
             
   workflows:
-    build-and-test:
-      jobs:
-        - build
-        - test_1:
-          requires:
-            - build
-        - test_2:
-          requires:
-            - build  
+      build-and-test:
+        jobs:
+          - build
+          - test_1:
+            requires:
+              - build
+          - test_2:
+            requires:
+              - build  
