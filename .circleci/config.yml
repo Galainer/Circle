@@ -38,13 +38,13 @@
         executor: heroku/default
         steps:
             - heroku/deploy-via-git
-workflows:
+  workflows:
     build-and-test:
-        jobs:
-         - build
-         - test_1:
-            requires:
-              - build
-         - test_2:
-            requires:
-              - build  
+      jobs:
+        - build
+        - test_1:
+          requires:
+            - build
+        - test_2:
+          requires:
+            - build  
