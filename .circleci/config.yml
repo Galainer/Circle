@@ -9,11 +9,6 @@ jobs:
         - node/install-packages
         - run:
             command: npm test
-    deploy:
-        executor: heroku/default
-        steps:
-            - checkout
-            - heroku/deploy-via-git
 workflows:
     build-test-and-deploy:
         jobs:
