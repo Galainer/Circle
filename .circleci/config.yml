@@ -1,7 +1,7 @@
 version: 2.1
-orbs:
-  node: circleci/node@2.1.0
-jobs:
+    orbs:
+      node: circleci/node@2.1.0
+    jobs:
     build-and-test:
     build:
         executor: 
@@ -21,7 +21,7 @@ jobs:
         - run:
             command: npm test
             working_directory: ./client
-     test_2:
+    test_2:
         executor:
           name: node/default
         steps:
