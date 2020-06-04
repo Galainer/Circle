@@ -1,44 +1,44 @@
-  version: 2.1
-  orbs:
-    node: circleci/node@2.1.0
-  jobs:
-    build-and-test:
-    build:
-      executor: 
+version: 2.1
+orbs:
+  node: circleci/node@2.1.0
+jobs:
+  build-and-test:
+  build:
+    executor: 
+      name: node/default
+      steps:
+      - checkout
+  test_1:
+      executor:
         name: node/default
-        steps:
-        - checkout
-    test_1:
-        executor:
-          name: node/default
-        steps:
-        - checkout
-        - node/install-packages:
-            app-dir: ./server
-        - run:
-            command: npm install
-            working_directory: ./client
-        - run:
-            command: npm test
-            working_directory: ./client
-    test_2:
-        executor:
-          name: node/default
-        steps:
-        - checkout
-        - node/install-packages:
-            app-dir: ./server        
-        - run:
-            command: npm install
-            working_directory: ./server
-        - run:
-            command: npm test
-            working_directory: ./server
-    deploy:
-        executor: heroku/default
-        steps:
-            - heroku/deploy-via-git
-  workflows:
+      steps:
+      - checkout
+      - node/install-packages:
+          app-dir: ./server
+      - run:
+          command: npm install
+          working_directory: ./client
+      - run:
+          command: npm test
+          working_directory: ./client
+  test_2:
+      executor:
+        name: node/default
+      steps:
+      - checkout
+      - node/install-packages:
+          app-dir: ./server        
+      - run:
+          command: npm install
+          working_directory: ./server
+      - run:
+          command: npm test
+          working_directory: ./server
+  deploy:
+      executor: heroku/default
+      steps:
+          - heroku/deploy-via-git
+workflows:
     build-and-test:
       jobs:
         - build
